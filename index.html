@@ -1,7 +1,9 @@
 <!doctype html>
 
 <head>
+	
 	<meta charset="utf-8">
+	<link rel = "stylesheet" type = "text/css" href = "styles.css" />
 	<script>
 		// TODO: create a handler
     window.addEventListener("load", function(){
@@ -63,11 +65,13 @@
 
 	<form id="searchForm">
     <!-- TODO: add form elements -->
-	<input type="text" name="q"></input>
-	<input type="radio" name="engine" value="google"/><label>Google</label>
-	<input type="radio" name="engine" value="duckDuckGo"/><label>DuckDuckGo</label>
-	<input type="radio" name="engine" value="bing"/><label>Bing</label>
-	<input type="radio" name="engine" value="ask"/><label>Ask</label>
+	<input type="text" name="q" placeholder="search query here."></input> 
+	<div class="engineOptions" >
+	<input  type="radio" name="engine" value="google"/><label>Google</label>
+	<input  type="radio" name="engine" value="duckDuckGo"/><label>DuckDuckGo</label>
+	<input  type="radio" name="engine" value="bing"/><label>Bing</label>
+	<input  type="radio" name="engine" value="ask"/><label>Ask</label>
+	</div>
 	
 	<input type="submit" value="Go!"/>
 	</form>
