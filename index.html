@@ -5,8 +5,57 @@
 	<script>
 		// TODO: create a handler
     window.addEventListener("load", function(){
+		
         // TODO: register the handler
+		let form= document.getElementById("searchForm");
+		form.addEventListener("submit", setSearchEngine);
     });
+
+	function setSearchEngine(){
+		console.log("set search engine method");
+		form= document.getElementById("searchForm");
+		let actions = {
+  				 "google": "https://www.google.com/",
+				 "duckDuckGo": "https://duckduckgo.com/",
+				 "bing": "https://duckduckgo.com/",
+				 "ask": "https://www.ask.com/web"
+				 
+				};
+		
+			let query = document.querySelector("input[name=q]");
+			if (query.value===""){
+				alert("You forgot to search something! Enter search value.");
+				event.preventDefault();
+			}
+		
+			let inputEngine = document.querySelector("input[name=engine]:checked");
+			let inputEngineV = document.getElementsByName("engine");
+
+        	let inputEngineValue = false;
+
+        for(let i=0; i<inputEngineV.length;i++){
+            if(inputEngineV[i].checked == true){
+                inputEngineValue = true;    
+            }
+        }
+        if(!inputEngineValue){
+            alert("Please Choose the search engine.");
+			event.preventDefault();
+            return false;
+			
+        }
+			// console.log(inputEngineV);
+			// if(!inputEngineV.value){
+			// 	alert("Please select search engine");
+			// 	event.preventDefault();
+			// }
+			
+			let action = actions[inputEngine.value];
+			
+			form.setAttribute('action',action);
+			
+
+	}
 	</script>
 </head>
 
@@ -14,6 +63,13 @@
 
 	<form id="searchForm">
     <!-- TODO: add form elements -->
+	<input type="text" name="q"></input>
+	<input type="radio" name="engine" value="google"/><label>Google</label>
+	<input type="radio" name="engine" value="duckDuckGo"/><label>DuckDuckGo</label>
+	<input type="radio" name="engine" value="bing"/><label>Bing</label>
+	<input type="radio" name="engine" value="ask"/><label>Ask</label>
+	
+	<input type="submit" value="Go!"/>
 	</form>
 
 </body>
